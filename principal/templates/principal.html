@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'title' %}
+Bem-Vindo
+{% endblock %}
+
+{% block 'extra_head' %}
+{% endblock %}
+{% block 'mensagem_top' %}
+Aqui os alunos podem realizar as reservas das salas de estudo
+Aqui os alunos podem realizar{% endblock %}
+{% block 'content' %}
+    <div class=" container text-center">
+        <a href="{% url 'salas_estudo' %}">
+            <img class="img_welcome img-fluid" style="max-height: 350px;" src="{% static 'principal/img/page_welcome_sicc.png' %}" alt="">
+        </a>
+    </div>
+{% endblock %}

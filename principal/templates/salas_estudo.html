@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'title' %}
+Salas de Estudo
+{% endblock %}
+
+{% block 'extra_head' %}
+    <link rel="stylesheet" href="{% static 'salas_estudo/style/style.css' %}">
+{% endblock %}
+{% block 'mensagem_top' %}
+Aqui os alunos podem realizar as reservas das salas de estudo
+{% endblock %}
+{% block 'content' %}
+    <div class=" container">
+        <div class="status_sala row mb-4">
+            <div class="col-sm-12 col-md-4">
+                <ion-icon class="status_disponivel" name="ellipse-sharp"></ion-icon>
+                <label class="status_legenda text-black-50">Disponível</label>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <ion-icon class="status_ocupado" name="ellipse-sharp"></ion-icon>
+                <label class="status_legenda text-black-50">Ocupado</label>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <ion-icon class="status_indisiponivel" name="ellipse-sharp"></ion-icon>
+                <label class="status_legenda text-black-50" >Indisponível</label>
+                
+            </div>
+        </div>
+        
+
+
+        <div class="row w-100">
+        {% for sala in salas %}
+            {% if sala.estado == 'Disponível' %}
+            <!-- Sala Disponível -->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card card-salas_estudo mb-4">
+                    <img src="{% static 'principal/img/biblioteca-sala_sicc.png' %}" class="card-img-top" alt="salas de estudo">
+                    <div class="card-body">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#Modal-{{sala.id}}" class="btn btn-success w-100">
+                            <b>{{sala}}</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Sala Disponível-->
+            <div class="modal fade" id="Modal-{{sala.id}}" tabindex="-1" aria-labelledby="ModalLabel-{{sala.id}}" aria-hidden="true">
+                <div class=" modal-lg modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel-{{sala.id}}">{{sala}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="titulo-modal_form text-center mb-3">Dados do usuário</div>
+                        <form>
+
+                            <div class="mb-3">
+                                <input class="form-control form-control-lg" type="text" placeholder="Nome Completo">
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control form-control-lg" type="text" placeholder="CPF">
+                            </div>
+                            <div class="mb-3">
+                                <p>Tempo a passar:</p>
+                                <label id="label_duracao" for="duracao" class="form-label">1 Hora</label>
+                                <input type="range" class="form-range" min="0" max="3" id="duracao" value="1">
+                            </div>
+
+                            <button type="submit" class="btn btn-success float-end m-3">Reservar Sala</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+
+            {% if sala.estado == 'Ocupado' %}
+            <!-- Sala Ocupada-->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card card-salas_estudo mb-4">
+                    <img src="{% static 'principal/img/biblioteca-sala_sicc.png' %}" class="card-img-top" alt="salas de estudo">
+                    <div class="card-body">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#Modal-{{sala.id}}" class="btn btn-warning w-100">
+                            <b>{{sala}}</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Sala Ocupada-->
+            <div class="modal fade" id="Modal-{{sala.id}}" tabindex="-1" aria-labelledby="ModalLabel-{{sala.id}}" aria-hidden="true">
+                <div class=" modal-lg modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel-{{sala.id}}">{{sala}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="">
+                            <button type="submit" class="btn btn-danger float-end m-3">Adverter Responsável</button>
+                            <button type="submit" class="btn btn-success float-end m-3 ">Liberar Sala</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+
+            {% if sala.estado == 'Indisponível' %}
+            <!-- Sala Indisponível-->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card card-salas_estudo mb-4">
+                    <img src="{% static 'principal/img/biblioteca-sala_sicc.png' %}" class="card-img-top" alt="salas de estudo">
+                    <div class="card-body">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#Modal-{{sala.id}}" class="btn btn-danger w-100">
+                            <b>{{sala}}</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Sala Inidponível-->
+            <div class="modal fade" id="Modal-{{sala.id}}" tabindex="-1" aria-labelledby="ModalLabel-{{sala.id}}" aria-hidden="true">
+                <div class=" modal-lg modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel-{{sala.id}}">{{sala}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3 form-check">
+                                
+                            </div>
+                            <button type="submit" class="btn btn-success m-3 float-end">Liberar Sala</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block 'extra_js' %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready({
+
+    })
+
+    $('#duracao').change(function(){
+        var duracao = $('#duracao').val()
+        label_duracao = $('#label_duracao')
+        switch(duracao) {
+        case '0':
+            label_duracao.text('30 Minutos');
+            break;
+        case '1':
+            label_duracao.text('1 Hora');
+            break;
+        case '2':
+            label_duracao.text('1 Hora e 30 Minutos');
+            break;
+        case '3':
+            label_duracao.text("2 Horas");
+            break;
+        }   
+    })
+</script>
+{% endblock %}
