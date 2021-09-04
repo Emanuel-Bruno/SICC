@@ -51,7 +51,9 @@ Aqui os alunos podem realizar as reservas das salas de estudo
                     <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="ModalLabel-{{sala.id}}">{{sala}}</h5>
+                        
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        
                     </div>
                     <div class="modal-body">
                         <div class="titulo-modal_form text-center mb-3">Dados do usuário</div>
@@ -68,7 +70,8 @@ Aqui os alunos podem realizar as reservas das salas de estudo
                                 <label id="label_duracao" for="duracao" class="form-label">1 Hora</label>
                                 <input type="range" class="form-range" min="0" max="3" id="duracao" value="1">
                             </div>
-
+                            <hr>
+                            <a id="id_bloquear_sala" role="button" class="btn" href="#"><img src="{% static 'salas_estudo/img/cadeado.png' %}" alt="Bloquear sala"></a>
                             <button type="submit" class="btn btn-success float-end m-3">Reservar Sala</button>
                         </form>
                     </div>
@@ -100,6 +103,19 @@ Aqui os alunos podem realizar as reservas das salas de estudo
                     </div>
                     <div class="modal-body">
                         <form class="">
+                            <div class="mb-5">
+                                <p class="legenda m-1">Nome do responsável</p>
+                                <p class="informacao m-1">Daniel da Silva Alves</p>
+                            </div>
+                            <div class="mb-5">
+                                <p class="legenda m-1">CPF</p>
+                                <p class="informacao m-1">123.456.789-10</p>
+                            </div>
+                            <div class="mb-5">
+                                <p class="legenda m-1">Horário de entrada/saída</p>
+                                <p class="informacao m-1">20:54 - 21:54</p>
+                            </div>
+                            <hr>
                             <button type="submit" class="btn btn-danger float-end m-3">Adverter Responsável</button>
                             <button type="submit" class="btn btn-success float-end m-3 ">Liberar Sala</button>
                         </form>
@@ -122,6 +138,7 @@ Aqui os alunos podem realizar as reservas das salas de estudo
                     </div>
                 </div>
             </div>
+
             <!-- Modal Sala Inidponível-->
             <div class="modal fade" id="Modal-{{sala.id}}" tabindex="-1" aria-labelledby="ModalLabel-{{sala.id}}" aria-hidden="true">
                 <div class=" modal-lg modal-dialog">
@@ -135,6 +152,7 @@ Aqui os alunos podem realizar as reservas das salas de estudo
                             <div class="mb-3 form-check">
                                 
                             </div>
+                            <hr>
                             <button type="submit" class="btn btn-success m-3 float-end">Liberar Sala</button>
                         </form>
                     </div>
@@ -148,29 +166,12 @@ Aqui os alunos podem realizar as reservas das salas de estudo
 {% endblock %}
 
 {% block 'extra_js' %}
+<!--   @ionincons   -->
+<script type"text/javascript" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
+
+<!--   @jQuery      -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready({
 
-    })
 
-    $('#duracao').change(function(){
-        var duracao = $('#duracao').val()
-        label_duracao = $('#label_duracao')
-        switch(duracao) {
-        case '0':
-            label_duracao.text('30 Minutos');
-            break;
-        case '1':
-            label_duracao.text('1 Hora');
-            break;
-        case '2':
-            label_duracao.text('1 Hora e 30 Minutos');
-            break;
-        case '3':
-            label_duracao.text("2 Horas");
-            break;
-        }   
-    })
-</script>
+<script src="{% static 'salas_estudo/js/main.js' %}"></script>
 {% endblock %}

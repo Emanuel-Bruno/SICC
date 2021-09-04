@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'title' %}
+
+{% endblock %}
+
+{% block 'extra_head' %}
+<link rel="stylesheet" href="{% static 'lista_servidores/css/style.css' %}">
+{% endblock %}
+
+{% block 'mensagem_top' %}
+Aqui, vemos a tabela com a lista de servidores, você pode cadastrar, editar e remover um funcionário
+{% endblock %}
+{% block 'content' %}
+<div class="container">
+    <h2>Tabela de Servidores</h2>
+    <div class="container-table " style="overflow-x: auto;">
+        <table class="table">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data de cadastro</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Remover</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for servidor in servidores %}
+              <tr>
+                <th scope="row">#{{servidor.id}}</th>
+                <td>{{servidor.first_name}}</td>
+                <td>{{servidor.date_joined}}</td>
+                <td>123.456.789.10</td>
+                <td><a class="btn" href="#"><img class="btn_editar" src="{% static 'lista_servidores/img/editar.png' %}" alt="Editar"></a>
+                </td>
+                <td>
+                <a class="btn" href="#"><img class="btn_excluir" src="{% static 'lista_servidores/img/excluir.png' %}" alt="Excluir"></a></td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    <button type="button" class="btn btn-primary">Adicionar Servidor</button>
+</div>
+{% endblock %}
+
+{% block 'extra_js' %}
+
+{% endblock %}

@@ -73,14 +73,8 @@ body::-webkit-scrollbar {
 
 .text-menu:hover{
     color: white;
+    fill: white;
     border-bottom: 2px solid white !important;
-}
-.footer{
-    padding: 30px; 
-    margin-top: 4px; 
-    background-color: #222222;
-    color: white;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 :root {

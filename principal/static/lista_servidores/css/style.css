@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    width: 93%;
+    background: #FFFFFF !important;
+    border-radius: 8px;
+    max-width: 940px
+}
+
+.container h2 {
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.8rem;
+    padding: .5rem 0;
+}
+
+.container button {
+    background: #006494;
+    border-radius: 8px;
+    align-self: center;
+    padding: .8rem 6rem;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: min(18px, 4vw);
+
+}
+
+.btn_editar{
+  margin: 0;
+  height: 25px;
+  width: 25px;
+  padding: 0;
+}
+
+.btn_excluir{
+  margin: 0;
+  height: 25px;
+  width: 25px;
+  padding: 0;
+}
+
+ .container-table {
+   max-width: 900px;
+   width: 100%;
+ }
+
+ .container  .container-table .table tbody tr:nth-child(2n) {
+    background-color: #EAFAFF;
+ }
+
+ .footer {
+     display: none;
+ }

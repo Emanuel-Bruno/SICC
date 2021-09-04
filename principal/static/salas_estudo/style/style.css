@@ -30,3 +30,18 @@
     color: #006494;
     font-weight: bolder;
 }
+
+#id_bloquear_sala{
+    background-color: #E42645;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.legenda{
+    color: #6C6C80;
+}
+
+.informacao{
+    color: black;
+    
+}

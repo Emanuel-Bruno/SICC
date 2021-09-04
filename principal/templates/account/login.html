@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'bootstrapv5.1/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="icon" type="imagem/png" href="{% static 'principal/img/logo_top.png' %}" />
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+    <title>
+    Login | SICC
+    </title>
+</head>
+<body>
+<div class="aria_left d-none d-lg-block">
+    <img class="img_left " src="{% static 'login/img/login_left_img.svg' %}" alt="Pessoas conversando">
+    <h4 class="text_left_bottom text-center">SICC - Sistema Integrado de Controle de Cabines</h4>
+</div>
+<div class="aria_right m-auto w-lg-100">
+    <div class="card card_right">
+    
+    <h3 class="text-center mb-5"><strong>Entrar</strong></h3>
+    
+    <div class="card-body mb">
+    <form class="mb-5" method='post'>
+      {% csrf_token %}
+  <div class="mb-4">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <img class="img_icon" src="{% static 'login/img/people.svg' %}" alt="pessoa">
+          </div>
+        </div>
+        <input type="text" class="form-control" name="login" placeholder="Nome de usuário" autocomplete="username" maxlength="150" required="" id="id_login">
+      </div>
+    
+  </div>
+  <div class="mb-4">
+  <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <img class="img_icon" src="{% static 'login/img/cadeado.svg' %}" alt="pessoa">
+          </div>
+        </div>
+        <input type="password" class="form-control" name="password" placeholder="Senha" autocomplete="current-password" required="" id="id_password">
+      </div>
+  </div>
+  <button type="submit" class="btn btn-success">ENTRAR</button>
+</form>
+<hr>
+    </div>
+    
+    </div>
+</div>
+<script src="{% static 'bootstrapv5.1/js/bootstrap.bundle.min.js' %}"></script>
+<script type"text/javascript" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

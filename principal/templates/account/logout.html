@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="imagem/png" href="{% static 'principal/img/logo_top.png' %}" />
+    <link href="{% static 'bootstrapv5.1/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <title>Confirmação | SICC</title>
+    
+    <style>
+    body{
+        background-color: #E8F1F2;
+        display:flex;
+        flex-direction: row;
+    }
+    .div_left{
+        width: 50%;
+        padding: 5%;
+    }
+    .div_right{
+        width: 50%;
+        padding: 5%;
+
+    }
+    @media only screen and (max-width: 992px){
+    .div_left {
+        min-width: 100%;
+        margin: 0 auto !important;
+        } 
+    }
+    </style>
+</head>
+<body>
+<div class="div_left">
+    <p>Você tem certeza que deseja sair?</p>
+    <form class="mb-5" method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        <a class="btn" href="{% url 'principal' %}">Cancelar</a>
+        <button class="btn btn-danger" type="submit">Sair</button>
+    </form>
+    <h3>Esperamos que tenha tido uma ótima experiência com nosso sistema :)</h3>
+    </div>
+    <div class="div_right d-none d-lg-block">
+        <img src="{% static 'logout/img/bye_img.svg' %}" alt="Imagem de logout">
+    </div>
+<script src="{% static 'bootstrapv5.1/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>
+
+
+    
