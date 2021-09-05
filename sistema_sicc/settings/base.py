@@ -20,16 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bzogg=e@(6r!!c&aoyv1u*f7o0i8^p81!62u_nk^cns9p5u)6)'
-# config('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-# config('DEBUG', default=False, cast=bool)
-
-ALLOWED_HOSTS = []
-# config('ALLOWED_HOSTS', default=[], cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 
 
 # Application definition
@@ -48,7 +44,6 @@ INSTALLED_APPS = [
     #allAuth
     'allauth',
     'allauth.account',
-    'allauth.socialaccount'
 ]
 
 MIDDLEWARE = [
@@ -145,6 +140,7 @@ AUTHENTICATION_BACKENDS=[
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend'
 ]
+
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL='/'
