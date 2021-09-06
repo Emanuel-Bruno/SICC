@@ -1,11 +1,13 @@
 from django.db import models
 
 class Sala(models.Model):
+    
     ESTADO = (
         ('Disponível', 'Disponível'),
         ('Ocupado', 'Ocupado'),
         ('Indisponível', 'Indisponível'),
-        )
+    )
+
     sala = models.CharField(
         verbose_name="Nome",
         max_length=30,
@@ -22,6 +24,12 @@ class Sala(models.Model):
         max_length=30,
         verbose_name="Estado",
         default=('Disponível', 'Disponível'),
+        null=True, blank=False
+    )
+
+    ordem = models.IntegerField(
+        verbose_name="Ordem",
+        default=99,
         null=True, blank=False
     )
 

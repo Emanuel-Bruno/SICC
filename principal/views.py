@@ -19,7 +19,7 @@ def principal(request):
 def salas_estudo(request):
     # Olá #
     
-    salas = Sala.objects.all()
+    salas = Sala.objects.all().order_by('ordem', 'id')
     return render(
         request,
         'reservas/salas_estudo.html',
