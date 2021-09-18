@@ -5,14 +5,67 @@
 {% endblock %}
 
 {% block 'extra_head' %}
+<style>
+    .card{
+        padding: 1rem;
+    }
+    
+    .btn-primary{
+        background: #006494;
+        border-radius: 8px;
+        align-self: center;
+        padding: .8rem 6rem;
+        font-family: Ubuntu;
+        font-style: normal;
+        font-weight: bold;
+        font-size: min(18px, 4vw);
+    }
+
+    .input_date{
+        
+        border-radius: 6px;
+        border: 1px solid #0004;
+        padding: 5px 5px 5px 10px;
+        font-size: 1.1rem;
+        color: #333;
+        width: 100%;
+    }
+
+    
+    @media(min-width: 912px) {
+        .container{
+            padding: 20px 100px 20px 100px;
+        }
+    }
+    
+</style>
 {% endblock %}
 
 {% block 'mensagem_top' %}
-
+Emitir o relatório de acordo comas informações repassadas no formulário
 {% endblock %}
 
 {% block 'content' %}
-<div> formulario do relatorio </div>
+<div class="container">
+    <div class="card">
+        <b class="mb-4">Insira o periodo de busca</b>
+        
+        <div class="row">
+            <div class="col-12 col-md-12 mt-1 mb-4">
+                <label for="#id_date_inicial">Data Inicial*</label>
+                <input id="id_date_inicial" class="input_date" type="date" required>
+            </div>
+            <div class="col-12 col-md-12 mt-1 mb-4">
+                <label for="#id_date_final">Data Final*</label>
+                <input id="id_date_final" class="input_date" type="date" required>
+            </div>
+            </div>
+        
+        
+        <button type="button" class="btn btn-primary">Gerar Relatório</button>
+    </div>
+</div>
+
 {% endblock %}
 
 {% block 'extra_js' %}

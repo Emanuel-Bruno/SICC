@@ -102,6 +102,7 @@ Aqui os alunos podem realizar as reservas das salas de estudo
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                    <div class="titulo-modal_form text-center mb-3">Dados da Sala</div>
                         <form class="">
                             <div class="mb-5">
                                 <p class="legenda m-1">Nome do responsável</p>
@@ -148,12 +149,23 @@ Aqui os alunos podem realizar as reservas das salas de estudo
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="mb-3 form-check">
-                                
+                        <div class="titulo-modal_form text-center mb-3">Dados da Sala</div>
+                        <form class="">
+                            <div class="mb-5">
+                                <p class="legenda m-1">Sala</p>
+                                <p class="informacao m-1">{{sala}}</p>
+                            </div>
+                            <div class="mb-5">
+                                <p class="legenda m-1">Servidor que efetuou o bloqueio</p>
+                                <p class="informacao m-1">Taisso Reni Melo</p>
+                            </div>
+                            <div class="mb-5">
+                                <p class="legenda m-1">Motivo:</p>
+                                <p class="informacao m-1">O ar condicionado da sala estava com defeitos</p>
                             </div>
                             <hr>
-                            <button type="submit" class="btn btn-success m-3 float-end">Liberar Sala</button>
+                            <button type="submit" class="btn btn-danger float-end m-3">Adverter Responsável</button>
+                            <button type="submit" class="btn btn-success float-end m-3 ">Liberar Sala</button>
                         </form>
                     </div>
                     </div>
