@@ -1,4 +1,4 @@
-# SICCNaWEB
+# SICC
 Projeto Acadêmico SICC
 Projeto Acadêmico para a Disciplina de Multimidia
 
