@@ -1,0 +1,78 @@
+body{
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+}
+
+div.aria_left {
+    background-color: #E8F1F2;
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_left{
+    display: flex;
+
+    max-width: 80%;
+    margin: 30px auto;
+    
+}
+
+.aria_right {
+    background-color: #1B98E0;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card_right{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: space-around;
+    min-height: 500px;
+    max-width: 70%;
+    margin: 0 auto;
+    padding: 50px 20px 50px 20px;
+    border-radius: 30px;
+}
+
+.btn{
+    width: 100% !important;
+}
+
+.input-group-text{
+    background-color: #395C96 !important;
+    border-radius: 8px 0 0 8px !important;
+    height: 40px;
+}
+
+input{
+    height: 40px;
+    border-radius: 0px 8px 8px 0px !important;
+    font-size: 1.1rem !important;
+
+}
+
+.img_icon{
+    width: 30px;
+    height: 30px;
+}
+
+.text_left_bottom{
+    margin: 0 auto;
+    max-width: 60%;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 992px){
+    .aria_right {
+        min-width: 100%;
+    } 
+}

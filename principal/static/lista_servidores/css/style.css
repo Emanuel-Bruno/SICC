@@ -26,6 +26,7 @@
     font-style: normal;
     font-weight: bold;
     font-size: min(18px, 4vw);
+    color: #fff !important;
 
 }
 
@@ -55,3 +56,10 @@
  .footer {
      display: none;
  }
+
+ .btn-add{
+  background-color: #006494;
+  color: white;
+  border-radius: 8px;
+  padding: 8px;
+}

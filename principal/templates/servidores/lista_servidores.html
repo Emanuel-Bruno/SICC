@@ -34,17 +34,30 @@ Aqui, vemos a tabela com a lista de servidores, você pode cadastrar, editar e r
                 <td>{{servidor.first_name}}</td>
                 <td>{{servidor.date_joined}}</td>
                 <td>123.456.789.10</td>
-                <td><a class="btn" href="#"><img class="btn_editar" src="{% static 'lista_servidores/img/editar.png' %}" alt="Editar"></a>
+                <td>
+                  {% if request.user.is_superuser %}
+                  <a class="btn" href="/admin/auth/user/{{servidor.id}}/change/"><img class="btn_editar" src="{% static 'lista_servidores/img/editar.png' %}" alt="Editar"></a>
+                  {% else %}
+                  <a class="btn" href="">Sem autorização</a>
+                  {% endif %}
                 </td>
                 <td>
-                <a class="btn" href="#"><img class="btn_excluir" src="{% static 'lista_servidores/img/excluir.png' %}" alt="Excluir"></a></td>
-              </tr>
+                  {% if request.user.is_superuser %}
+                  <a class="btn" href="{% url 'set_delete_servidor' servidor.id %}"><img class="btn_excluir" src="{% static 'lista_servidores/img/excluir.png' %}" alt="Excluir"></a></td>
+                  {% else %}
+                  <a class="btn" href="">Sem autorização</a>
+                  {% endif %}
+                </tr>
             {% endfor %}
             </tbody>
           </table>
     </div>
-    <button type="button" class="btn btn-primary">Adicionar Servidor</button>
-</div>
+    {% if request.user.is_superuser %}
+    <form class="container" action="/admin/auth/user/add/">
+      <button type="submit" class="btn-add" >Adicionar Servidor</button>
+    </form>
+    {% endif %}
+  </div>
 {% endblock %}
 
 {% block 'extra_js' %}

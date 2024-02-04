@@ -1,0 +1,46 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg sistem-bg-secondary-dark mb-4">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <img height="30px" src="{% static 'principal/img/menu-sharp.svg' %}" alt="Menu">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav text-white w-100">
+
+                <a class="link_remove_style text-menu text-center mx-auto" aria-current="page" href="{% url 'salas_estudo' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="22px" class="ionicon d-lg-none" fill="#f4f4f4" viewBox="0 0 512 512"><title>Calendar</title><path d="M32 456a24 24 0 0024 24h400a24 24 0 0024-24V176H32zm320-244a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm-80-80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zm0 80a4 4 0 014-4h40a4 4 0 014 4v40a4 4 0 01-4 4h-40a4 4 0 01-4-4zM456 64h-55.92V32h-48v32H159.92V32h-48v32H56a23.8 23.8 0 00-24 23.77V144h448V87.77A23.8 23.8 0 00456 64z"/></svg>
+
+                    SALAS
+                </a>
+                {% if request.user.is_superuser %}
+                <div class="separador-menu d-none d-lg-block mx-auto"></div>
+                <br class="d-lg-none">
+                <a class="link_remove_style text-menu text-center mx-auto" href="{% url 'lista_servidores' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="26px" class="ionicon d-lg-none" fill="#f4f4f4" viewBox="0 0 512 512"><title>List Circle</title><path d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm-64 287.5a16 16 0 01-16 16h-16a16 16 0 01-16-16v-16a16 16 0 0116-16h16a16 16 0 0116 16zm0-71a16 16 0 01-16 16h-16a16 16 0 01-16-16v-16a16 16 0 0116-16h16a16 16 0 0116 16zm0-72a16 16 0 01-16 16h-16a16 16 0 01-16-16v-16a16 16 0 0116-16h16a16 16 0 0116 16zm176 151H212.67v-32H368zm0-71H212.67v-32H368zm0-72H212.67v-32H368z"/></svg>
+                    SERVIDORES
+                 </a>
+                 {% endif %}
+                 {% comment %} <br class="d-lg-none">
+                <div class="separador-menu d-none d-lg-block mx-auto"></div>
+
+                <a class="link_remove_style text-menu text-center mx-auto" href="{% url 'form_relatorio' %}">
+                    <svg height="22px" class="ionicon d-lg-none" fill="#f4f4f4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title></title><path d="M420 48h-68V28a12 12 0 00-12-12H172a12 12 0 00-12 12v20H92a12 12 0 00-12 12v424a12 12 0 0012 12h328a12 12 0 0012-12V60a12 12 0 00-12-12zm-84.13 64H176.13V80h159.74z"/></svg>
+                    RELATÓRIO
+                </a>
+                <div class="separador-menu d-none d-lg-block mx-auto"></div>
+                <br class="d-lg-none">
+
+                <a class="link_remove_style text-menu text-center mx-auto" href="{% url 'form_dashboard' %}">
+                <svg height="22px" class="ionicon d-lg-none" fill="#f4f4f4" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                    <title>Bar Chart</title>
+                    <path d="M496 496H16V16h32v448h448v32z"/><path d="M192 432H80V208h112zM336 432H224V160h112zM479.64 432h-112V96h112z"/>
+                </svg>
+                    GRÁFICOS
+                </a>
+                <br class="d-lg-none">
+ {% endcomment %}
+            </div>
+            </div>
+        </div>
+    </nav>

@@ -8,7 +8,8 @@ from .views import(
     relatorio_salas,
     dashboard,
     form_dashboard,
-    form_relatorio
+    form_relatorio,
+    set_delete_servidor
 )
 
 
@@ -20,4 +21,5 @@ urlpatterns = [
     path('dashboard/', dashboard, name='dashboard'), # dashboard
     path('form_dashboard/', form_dashboard, name='form_dashboard'), # form_dashboard
     path('form_relatorio/', form_relatorio, name='form_relatorio'), # form_relatorio
+    path('set_delete_servidor/<int:id_servidor>/', set_delete_servidor, name='set_delete_servidor')
 ]

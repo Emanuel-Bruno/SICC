@@ -1,0 +1,45 @@
+{% load static %}
+
+<!-- Sala Indisponível-->
+<div class="col-sm-12 col-md-6 col-lg-4">
+    <div class="card card-salas_estudo mb-4">
+        <img src="{% static 'principal/img/biblioteca-sala_sicc.png' %}" class="card-img-top" alt="salas de estudo">
+        <div class="card-body">
+            <button type="button" data-bs-toggle="modal" class="btn btn-danger w-100">
+                <b>{{sala}}</b>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Sala Inidponível-->
+<div class="modal fade" id="Modal-{{sala.id}}" tabindex="-1" aria-labelledby="ModalLabel-{{sala.id}}" aria-hidden="true">
+    <div class=" modal-lg modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabel-{{sala.id}}">{{sala}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="titulo-modal_form text-center mb-3">Dados da Sala</div>
+            <form class="">
+                <div class="mb-5">
+                    <p class="legenda m-1">Sala</p>
+                    <p class="informacao m-1">{{sala}}</p>
+                </div>
+                <div class="mb-5">
+                    <p class="legenda m-1">Servidor que efetuou o bloqueio</p>
+                    <p class="informacao m-1">Taisso Reni Melo</p>
+                </div>
+                <div class="mb-5">
+                    <p class="legenda m-1">Motivo:</p>
+                    <p class="informacao m-1">O ar condicionado da sala estava com defeitos</p>
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-danger float-end m-3">Adverter Responsável</button>
+                <button type="submit" class="btn btn-success float-end m-3 ">Liberar Sala</button>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>

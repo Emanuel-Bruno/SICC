@@ -1,0 +1,9 @@
+{% extends 'admin/base_site.html' %}
+{% load static %}
+
+{% block title %}SICC - Administrativo{% endblock %}
+{% block branding %}
+<a href="{% url 'admin:index' %}">
+<img src="{% static 'principal/img/SICC.png' %}" alt="logo">
+</a>
+{% endblock %}

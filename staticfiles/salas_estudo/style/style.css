@@ -1,0 +1,47 @@
+.card-salas_estudo{
+    border-radius: 8px !important;
+}
+
+.status_sala{
+    display: flex;
+    justify-content: center;
+}
+.status_disponivel{
+    color: #157347;
+}
+
+.status_ocupado{
+    color: #FFCA2C;
+}
+
+.status_indisiponivel{
+    color: #BB2D3B;
+}
+
+.status_legenda{
+    font-weight: bolder;
+}
+
+.img_welcome{
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.titulo-modal_form{
+    color: #006494;
+    font-weight: bolder;
+}
+
+#id_bloquear_sala{
+    background-color: #E42645;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.legenda{
+    color: #6C6C80;
+}
+
+.informacao{
+    color: black;
+    
+}

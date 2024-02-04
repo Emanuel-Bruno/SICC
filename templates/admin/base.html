@@ -1,0 +1,65 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+
+
+
+
+{% block extrahead %}
+<link rel="icon" type="imagem/png" href="{% static 'principal/img/logo_top.png' %}" />
+
+{% endblock %}
+{% block extrastyle %}
+<style>
+    #user-tools{
+        text-transform: none !important;
+        font-size: 14px;
+    }
+    #header{
+        background-color: #006494 !important;
+
+    }
+
+    #user-tools a {
+        border-radius: 8px;
+        border: 3px solid #1B98E0 !important;
+        background-color: #1B98E0;
+        padding: 2px 8px;
+        color: white;
+        font-weight: 600;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    #user-tools a:hover {
+        background-color: #0e83c7;
+        border: 3px solid #0e83c7 !important;
+        padding: 2px 8px;
+        color: white;
+        font-weight: 600;
+    }
+
+    .breadcrumbs{
+        background-color: #1B98E0 !important;
+
+    }
+    caption{
+        background-color: #1B98E0 !important;
+        color: #fff !important;
+        font-weight: 700 !important;
+
+    }
+    div > div.selector-chosen > h2 {
+        background-color: #1B98E0 !important;
+        
+    }
+    .object-tools a{
+        background-color: #006494 !important;
+        font-weight: 700 !important;
+        color: white !important;
+    }
+    
+    input[type='submit']{
+        background-color: #1B98E0 !important;
+    }
+</style>
+{% endblock %}

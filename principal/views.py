@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
@@ -71,3 +72,20 @@ def form_dashboard(request):
         request,
         'dashboard/form_dashboard.html'
     )
+
+@login_required
+def get_status_sala(request):
+
+    salas = Sala.objects.all()
+    data_response={
+
+    }
+    return JsonResponse(data=data_response, safe=False)
+
+
+@login_required
+def set_delete_servidor(request, id_servidor):
+    servidor = User.objects.get(id=id_servidor)
+    servidor.delete()
+
+    return redirect('lista_servidores')
