@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     #allAuth
     'allauth',
     'allauth.account',
+    'django_object_actions',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,5 @@ LOGIN_REDIRECT_URL='/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+TEST_SERVER = 'http://localhost:8000'

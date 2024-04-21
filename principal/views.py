@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 from .models import (
     Sala
@@ -31,9 +32,8 @@ def salas_estudo(request):
 
 @login_required
 def lista_servidores(request):
-
     data={
-        'servidores': User.objects.filter(is_staff=True)
+        'servidores': User.objects.filter(is_staff=True),
     }
     
     return render(
@@ -43,49 +43,12 @@ def lista_servidores(request):
     )
 
 @login_required
-def dashboard(request):
-    
-    return render(
-        request,
-        'dashboard/dashboard.html'
-    )
-
-@login_required
-def relatorio_salas(request):
-    
-    return render(
-        request,
-        'relatorio/relatorio_salas.html'
-    )
-
-@login_required
-def form_relatorio(request):
-    
-    return render(
-        request,
-        'relatorio/form_relatorio.html'
-    )
-@login_required
-def form_dashboard(request):
-    
-    return render(
-        request,
-        'dashboard/form_dashboard.html'
-    )
-
-@login_required
-def get_status_sala(request):
-
-    salas = Sala.objects.all()
-    data_response={
-
-    }
-    return JsonResponse(data=data_response, safe=False)
-
-
-@login_required
 def set_delete_servidor(request, id_servidor):
-    servidor = User.objects.get(id=id_servidor)
-    servidor.delete()
-
+    
+    try:
+        servidor = User.objects.get(id=id_servidor)
+        servidor.delete()
+    except:
+        return redirect(reverse('lista_servidores') + '?message=Usuário não encontrado')
+    
     return redirect('lista_servidores')

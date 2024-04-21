@@ -2,7 +2,7 @@ from django.db import models
 from .sala import Sala
 
 class Reserva(models.Model):
-    sala = models.OneToOneField(
+    sala = models.ForeignKey(
         Sala,
         verbose_name='Sala',
         on_delete=models.CASCADE,
@@ -25,3 +25,10 @@ class Reserva(models.Model):
 
     def __str__(self):
         return "{}".format(self.id)
+    
+    def save(self, *args, **kwargs):
+        if self.sala.estado == 'Disponível':
+            sala = self.sala
+            sala.estado = 'Ocupado'
+            sala.save()
+        super(Reserva, self).save(*args, **kwargs)
