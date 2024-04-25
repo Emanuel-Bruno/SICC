@@ -27,10 +27,7 @@ Trata-se de um sistema integrado de controle de cabines
     ```
     pip install -r requirements-dev.txt
     ```
-    ou
-    ```
-    pip install -r requirements.txt
-    ```
+
 
 ## Executando o Projeto
 
